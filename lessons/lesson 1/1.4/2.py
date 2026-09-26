@@ -1,13 +1,13 @@
-def seq(amount):
-    if amount == 1:
-        return ['1 1 3']
-    elif amount == 2:
-        return ['1 1 2', '2 1 3', '1 2 3']
+def move(n, fr, to):
+    'Перенос n дисков с стержня fr на стержень to'
 
-    beg_sec = seq(amount - 1)
+    if n == 0:
+        return
 
+    move(n - 1, fr, 6 - fr - to)
+    print(n, fr, to)
+    move(n - 1, 6 - fr - to, to)
 
 
 num_of_slice = int(input())
-
-# хз
+move(num_of_slice, 1, 3)
