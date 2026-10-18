@@ -1,7 +1,7 @@
-def partition(a, x):
-    e, g, n = 0, 0, 0
+def partition(a, x, left=0, r=0):
+    e, g, n = 0, 0, left
 
-    while n < len(a):
+    while n < r:
         if a[n] > x:
             n += 1
         elif a[n] == x:
@@ -24,6 +24,6 @@ n = int(input())
 arr = list(map(int, input().split()))
 x = int(input())
 
-p = partition(arr, x)
+p = partition(arr, x, 0, n)
 print(p)
-print(len(arr) - p)
+print(n - p)
